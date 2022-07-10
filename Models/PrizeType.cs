@@ -1,4 +1,6 @@
-﻿namespace WebLearningMVCEF.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebLearningMVCEF.Models
 {
     public class PrizeType
     {
