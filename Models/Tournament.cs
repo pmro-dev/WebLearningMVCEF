@@ -13,7 +13,7 @@ namespace WebLearningMVCEF.Models
         public string ShortDescription { get; set; }
         public string LongDescription{ get; set; }
         public int Type { get; set; }
-        public File Rules { get; set; }
+        public string Rules { get; set; }
         public DateTime Date{ get; set; }
 
         public int EventId { get; set; }
