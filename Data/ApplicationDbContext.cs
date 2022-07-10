@@ -21,6 +21,7 @@ namespace WebLearningMVCEF.Data
         public DbSet<PrizeType> PrizesTypes { get; set; }
         public DbSet<PrizeCategory> PrizesCategories { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<GameType> GamesTypes { get; set; }
 
     }
 }
