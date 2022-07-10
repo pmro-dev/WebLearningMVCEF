@@ -19,9 +19,6 @@ namespace WebLearningMVCEF.Models
         public string SecondName { get; set; }
         public int Phone { get; set; }
         public int CreditCard { get; set; }
-        public int CompanyId { get; set; }
-        [ForeignKey("CompanyId")]
-        public virtual Company Company { get; set; }
         public DateTime DateOfLastLogin { get; set; }
         public DateTime DateOfAccountCreation { get; set; }
         public DateTime DateOfGrantedRole { get; set; }
