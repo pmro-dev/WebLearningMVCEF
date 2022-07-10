@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebLearningMVCEF.Models
 {
@@ -16,8 +17,8 @@ namespace WebLearningMVCEF.Models
         public int Phone { get; set; }
         public int CreditCard { get; set; }
         public int Company_ID { get; set; }
-        public System.DateTime DateOfLastLogin { get; set; }
-        public System.DateTime DateOfAccountCreation { get; set; }
-        public System.DateTime DateOfGrantedRole { get; set; }
+        public DateTime DateOfLastLogin { get; set; }
+        public DateTime DateOfAccountCreation { get; set; }
+        public DateTime DateOfGrantedRole { get; set; }
     }
 }
