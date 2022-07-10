@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebLearningMVCEF.Models
 {
@@ -7,7 +8,9 @@ namespace WebLearningMVCEF.Models
     {
         [Key]
        public int Id { get; set; }
-        public int Type { get; set; }
+        public int EventTypeId { get; set; }
+        [ForeignKey("EventTypeId")]
+        public virtual EventType EventType { get; set; }
         public string Name { get; set; }
         public string ShortDescription { get; set; }
         public string FullDescription { get; set; }
