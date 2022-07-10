@@ -17,5 +17,6 @@ namespace WebLearningMVCEF.Data
         public DbSet<EventPlace> EventsPlaces { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Prize> Prizes { get; set; }
+        public DbSet<Company> Companies { get; set; }
     }
 }
