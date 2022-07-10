@@ -14,5 +14,8 @@ namespace WebLearningMVCEF.Models
         public int GameTypeId { get; set; }
         [ForeignKey("GameTypeId")]
         public virtual GameType Type { get; set; }
+        public int PegiTypeId { get; set; }
+        [ForeignKey("PegiTypeId")]
+        public virtual PegiType Pegi { get; set; }
     }
 }
