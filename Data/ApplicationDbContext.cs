@@ -25,6 +25,7 @@ namespace WebLearningMVCEF.Data
         public DbSet<PegiType> PegiesTypes { get; set; }
         public DbSet<EventType> EventsTypes { get; set; }
         public DbSet<PodiumRanking> PodiumsRankings { get; set; }
+        public DbSet<RoleType> RolesTypes { get; set; }
 
     }
 }
