@@ -20,5 +20,7 @@ namespace WebLearningMVCEF.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<PrizeType> PrizesTypes { get; set; }
         public DbSet<PrizeCategory> PrizesCategories { get; set; }
+        public DbSet<Game> Games { get; set; }
+
     }
 }
