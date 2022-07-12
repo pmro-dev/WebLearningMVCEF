@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<User> 
+
+<h1>ADMIN PANEL</h1>
+
+<a class="btn btn-primary" asp-controller="AdminPanel" asp-action="AddUser">ADD USER</a>
+
+<table class="table table-bordered table-striped" style="width:100%">
+	<thead>
+		<th>
+			Nick
+		</th>
+		<th>
+			Login
+		</th>
+		<th>
+			Role Type Id
+		</th>
+		<th>
+			First Name
+		</th>
+		<th>
+			Second Name
+		</th>
+		<th>
+			Phone
+		</th>
+		<th>
+			Date Of Last Login
+		</th>
+		<th>
+			Date Of Account Creation
+		</th>
+	</thead>
+	
+	<tbody>
+		@if(Model.Count() > 0) {
+			foreach(User user in Model) {
+				<tr>
+					<td width="12.5%">@user.NickName</td>
+					<td width="12.5%">@user.Login</td>
+					<td width="12.5%">@user.RoleTypeId</td>
+					<td width="12.5%">@user.FirstName</td>
+					<td width="12.5%">@user.SecondName</td>
+					<td width="12.5%">@user.Phone</td>
+					<td width="12.5%">@user.DateOfLastLogin</td>
+					<td width="12.5%">@user.DateOfAccountCreation</td>
+				</tr>
+			}
+		}
+	</tbody>
+
+</table>
+
+
