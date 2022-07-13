@@ -31,20 +31,25 @@
 		<th>
 			Date Of Account Creation
 		</th>
+		<th>
+			Action
+		</th>
 	</thead>
 	
 	<tbody>
 		@if(Model.Count() > 0) {
 			foreach(User user in Model) {
 				<tr>
-					<td width="12.5%">@user.NickName</td>
-					<td width="12.5%">@user.Login</td>
-					<td width="12.5%">@user.RoleTypeId</td>
-					<td width="12.5%">@user.FirstName</td>
-					<td width="12.5%">@user.SecondName</td>
-					<td width="12.5%">@user.Phone</td>
-					<td width="12.5%">@user.DateOfLastLogin</td>
-					<td width="12.5%">@user.DateOfAccountCreation</td>
+					<td width="11%">@user.NickName</td>
+					<td width="11%">@user.Login</td>
+					<td width="11%">@user.RoleTypeId</td>
+					<td width="11%">@user.FirstName</td>
+					<td width="11%">@user.SecondName</td>
+					<td width="11%">@user.Phone</td>
+					<td width="11%">@user.DateOfLastLogin</td>
+					<td width="11%">@user.DateOfAccountCreation</td>
+					<td width="6%"><a class="btn btn-success" asp-controller="AdminPanel" asp-action="UpdateUser" asp-route-id="@user.Id">UPDATE</a></td>
+					<td width="6%"><a class="btn btn-danger" asp-controller="AdminPanel" asp-action="DeleteUser" asp-route-id="@user.Id">DELETE</a></td>
 				</tr>
 			}
 		}

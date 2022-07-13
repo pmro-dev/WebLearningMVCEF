@@ -1,0 +1,64 @@
+﻿@model WebLearningMVCEF.Models.User
+
+@{
+    ViewData["Title"] = "DeleteUser";
+}
+
+<h1>Delete User</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DeleteUserPost">
+            <input asp-for="Id" hidden/>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" disabled/>
+                </div>
+            <div class="form-group">
+                <label asp-for="NickName" class="control-label"></label>
+                <input asp-for="NickName" class="form-control" disabled/>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label"></label>
+                <input asp-for="Login" class="form-control" disabled/>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleTypeId" class="control-label"></label>
+                <input asp-for="RoleTypeId" class="form-control" disabled/>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondName" class="control-label"></label>
+                <input asp-for="SecondName" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreditCard" class="control-label"></label>
+                <input asp-for="CreditCard" class="form-control" disabled/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn btn-success" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -41,5 +41,36 @@ namespace WebLearningMVCEF.Controllers
             }
             return View(newUser);
         }
+
+        public IActionResult DeleteUser(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            User obj = _db.Users.Find(id);
+
+            if (obj == null) {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteUserPost(int? id)
+        {
+            User obj = _db.Users.Find(id);
+            if (obj == null) 
+            { 
+                return NotFound(); 
+            }
+
+            _db.Users.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
