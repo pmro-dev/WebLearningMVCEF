@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebLearningMVCEF.Models
@@ -17,9 +18,11 @@ namespace WebLearningMVCEF.Models
         public virtual City City { get; set; }
         [Required]
         public string Address { get; set; }
+        [DisplayName("Post Code")]
         public int PostCode { get; set; }
         [Required]
         public int Capacity { get; set; }
+        [DisplayName("Cost (Per Day)")]
         public float CostPerDay { get; set; }
         [Required]
         public string Owner { get; set; }

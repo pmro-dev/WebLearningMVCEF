@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
 
 namespace WebLearningMVCEF.Models
 {
@@ -10,6 +10,7 @@ namespace WebLearningMVCEF.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [DisplayName("Short Description")]
         public string ShortDescription { get; set; }
         public string Website { get; set; }
 

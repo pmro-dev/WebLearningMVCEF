@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
@@ -13,7 +14,9 @@ namespace WebLearningMVCEF.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [DisplayName("Short Description")]
         public string ShortDescription { get; set; }
+        [DisplayName("Full Description")]
         public string LongDescription{ get; set; }
         [Required]
         public int Type { get; set; }

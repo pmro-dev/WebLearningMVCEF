@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebLearningMVCEF.Models
 {
@@ -10,6 +11,7 @@ namespace WebLearningMVCEF.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [DisplayName("Access Level")]
         public int AccessLevel { get; set; }
     }
 }
