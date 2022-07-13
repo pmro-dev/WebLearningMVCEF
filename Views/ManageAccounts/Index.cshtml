@@ -48,8 +48,8 @@
 					<td width="11%">@user.Phone</td>
 					<td width="11%">@user.DateOfLastLogin</td>
 					<td width="11%">@user.DateOfAccountCreation</td>
-					<td width="6%"><a class="btn btn-success" asp-controller="AdminPanel" asp-action="UpdateUser" asp-route-id="@user.Id">UPDATE</a></td>
-					<td width="6%"><a class="btn btn-danger" asp-controller="AdminPanel" asp-action="DeleteUser" asp-route-id="@user.Id">DELETE</a></td>
+					<td width="6%"><a class="btn btn-success" asp-controller="ManageAccounts" asp-action="UpdateUser" asp-route-id="@user.Id">UPDATE</a></td>
+					<td width="6%"><a class="btn btn-danger" asp-controller="ManageAccounts" asp-action="DeleteUser" asp-route-id="@user.Id">DELETE</a></td>
 				</tr>
 			}
 		}

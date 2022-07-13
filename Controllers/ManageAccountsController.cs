@@ -6,11 +6,11 @@ using WebLearningMVCEF.Models;
 
 namespace WebLearningMVCEF.Controllers
 {
-    public class AdminPanelController : Controller
+    public class ManageAccountsController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public AdminPanelController(ApplicationDbContext db)
+        public ManageAccountsController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -71,6 +71,37 @@ namespace WebLearningMVCEF.Controllers
             _db.Users.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateUser(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            User obj = _db.Users.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateUserPost(User updateUser)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.Users.Update(updateUser);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(updateUser);
         }
     }
 }
