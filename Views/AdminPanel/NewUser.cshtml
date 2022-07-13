@@ -1,7 +1,7 @@
 ﻿@model WebLearningMVCEF.Models.User
 
 @{
-    ViewData["Title"] = "AddUser";
+    ViewData["Title"] = "NewUser";
 }
 
 <h1>AddUser</h1>
@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddUser">
+        <form asp-action="NewUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
@@ -62,7 +62,6 @@
         </form>
     </div>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

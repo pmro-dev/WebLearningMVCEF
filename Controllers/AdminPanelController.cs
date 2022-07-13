@@ -22,7 +22,7 @@ namespace WebLearningMVCEF.Controllers
             return View(usersList);
         }
 
-        public IActionResult AddUser()
+        public IActionResult NewUser()
         {
             return View();
         }
