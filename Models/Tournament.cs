@@ -17,7 +17,7 @@ namespace WebLearningMVCEF.Models
         [DisplayName("Short Description")]
         public string ShortDescription { get; set; }
         [DisplayName("Full Description")]
-        public string LongDescription{ get; set; }
+        public string FullDescription{ get; set; }
         [Required]
         public int Type { get; set; }
         public string Rules { get; set; }
