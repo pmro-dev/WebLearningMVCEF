@@ -17,13 +17,13 @@ namespace WebLearningMVCEF.Models
         [ForeignKey("PartnerId")]
         public virtual Company Partner { get; set; }
         [Required]
-        public int PrizeTypeId { get; set; }
+        public int TypeId { get; set; }
         [Required]
-        [ForeignKey("PrizeTypeId")]
+        [ForeignKey("TypeId")]
         public virtual PrizeType Type { get; set; }
         [Required]
-        public int PrizeCategoryId { get; set; }
-        [ForeignKey("PrizeCategoryId")]
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         [Required]
         public virtual PrizeCategory Category { get; set; }
         public int Amount { get; set; }
