@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System.Collections.Generic;
 using WebLearningMVCEF.Data;
 using WebLearningMVCEF.Models;
@@ -24,6 +25,14 @@ namespace WebLearningMVCEF.Controllers
 
         public IActionResult NewUser()
         {
+            IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+
+            ViewBag.TypeDropDown = TypeDropDown;
+
             return View();
         }
 
@@ -86,6 +95,14 @@ namespace WebLearningMVCEF.Controllers
             {
                 return NotFound();
             }
+
+            IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+
+            ViewBag.TypeDropDown = TypeDropDown;
 
             return View(obj);
         }
