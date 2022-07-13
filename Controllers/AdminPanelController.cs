@@ -26,5 +26,20 @@ namespace WebLearningMVCEF.Controllers
         {
             return View();
         }
+
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddUser(User newUser)
+        {
+            // This is server side validation, but it's to easy task to do it on server side, better is Client Side Validation implemented directly in View
+            if (ModelState.IsValid)
+            {
+                _db.Users.Add(newUser);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(newUser);
+        }
     }
 }
