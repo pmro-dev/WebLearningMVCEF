@@ -22,6 +22,11 @@ namespace WebLearningMVCEF.Controllers
         {
             IEnumerable<User> usersList = _db.Users;
 
+            foreach (User user in usersList)
+            {
+                user.RoleType = _db.RolesTypes.FirstOrDefault(role => role.Id == user.RoleTypeId);
+            }
+
             return View(usersList);
         }
 
