@@ -4,6 +4,8 @@ using System.Linq;
 using System.Collections.Generic;
 using WebLearningMVCEF.Data;
 using WebLearningMVCEF.Models;
+using WebLearningMVCEF.Models.ViewModels;
+using System.Threading.Tasks;
 
 namespace WebLearningMVCEF.Controllers
 {
@@ -25,30 +27,40 @@ namespace WebLearningMVCEF.Controllers
 
         public IActionResult NewUser()
         {
-            IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
+            //IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
+            //{
+            //    Text = i.Name,
+            //    Value = i.Id.ToString()
+            //});
+
+            //ViewBag.TypeDropDown = TypeDropDown;
+
+            UserVM userVM = new()
             {
-                Text = i.Name,
-                Value = i.Id.ToString()
-            });
+                User = new User(),
+                RolesTypesDropDown = _db.RolesTypes.Select(item => new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                })
+            };
 
-            ViewBag.TypeDropDown = TypeDropDown;
-
-            return View();
+            return View(userVM);
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddUser(User newUser)
+        public IActionResult NewUser(UserVM userVM)
         {
             // This is server side validation, but it's to easy task to do it on server side, better is Client Side Validation implemented directly in View
             if (ModelState.IsValid)
             {
-                _db.Users.Add(newUser);
+                _db.Users.Add(userVM.User);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(newUser);
+            return View(userVM);
         }
 
         public IActionResult DeleteUser(int? id)
@@ -84,41 +96,60 @@ namespace WebLearningMVCEF.Controllers
 
         public IActionResult UpdateUser(int? id)
         {
+            //User obj = _db.Users.Find(id);
+
+            //if (obj == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
+            //{
+            //    Text = i.Name,
+            //    Value = i.Id.ToString()
+            //});
+
+            //ViewBag.TypeDropDown = TypeDropDown;
+
+            UserVM userVM = new UserVM()
+            {
+                User = new User(),
+                RolesTypesDropDown = _db.RolesTypes.Select(item => new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                })
+            };
+
             if (id == null || id == 0)
             {
                 return NotFound();
             }
 
-            User obj = _db.Users.Find(id);
+            userVM.User = _db.Users.Find(id);
 
-            if (obj == null)
+            if (userVM.User == null)
             {
                 return NotFound();
             }
 
-            IEnumerable<SelectListItem> TypeDropDown = _db.RolesTypes.Select(i => new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Id.ToString()
-            });
-
-            ViewBag.TypeDropDown = TypeDropDown;
-
-            return View(obj);
+            return View(userVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateUserPost(User updateUser)
+        public IActionResult UpdateUser(UserVM userVM)
         {
+
+            //userVM.User.RoleType = _db.RolesTypes.Find(2);
 
             if (ModelState.IsValid)
             {
-                _db.Users.Update(updateUser);
+                _db.Users.Update(userVM.User);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(updateUser);
+            return View(userVM);
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿@model WebLearningMVCEF.Models.User
-
-@{
-    ViewData["Title"] = "UpdateUser";
-}
+﻿@model WebLearningMVCEF.Models.ViewModels.UserVM
 
 <h1>Update User</h1>
 
@@ -10,53 +6,53 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="UpdateUser">
-            <input asp-for="Id" hidden/>
+        <form method="post" asp-action="UpdateUser">
+            <input asp-for="User.Id" hidden/>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="User.Email" class="control-label"></label>
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NickName" class="control-label"></label>
-                <input asp-for="NickName" class="form-control" />
-                <span asp-validation-for="NickName" class="text-danger"></span>
+                <label asp-for="User.NickName" class="control-label"></label>
+                <input asp-for="User.NickName" class="form-control" />
+                <span asp-validation-for="User.NickName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
+                <label asp-for="User.Login" class="control-label"></label>
+                <input asp-for="User.Login" class="form-control" />
+                <span asp-validation-for="User.Login" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RoleTypeId" class="control-label"></label>
-                <select asp-for="RoleTypeId" class ="form-control" asp-items="@ViewBag.TypeDropDown">
+                <label asp-for="User.RoleTypeId" class="control-label"></label>
+                <select asp-for="User.RoleTypeId" class ="form-control" asp-items="@Model.RolesTypesDropDown">
                     <option selected>--Select RoleType</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="User.Password" class="control-label"></label>
+                <input asp-for="User.Password" class="form-control" />
+                <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" class="form-control" />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecondName" class="control-label"></label>
-                <input asp-for="SecondName" class="form-control" />
-                <span asp-validation-for="SecondName" class="text-danger"></span>
+                <label asp-for="User.SecondName" class="control-label"></label>
+                <input asp-for="User.SecondName" class="form-control" />
+                <span asp-validation-for="User.SecondName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
+                <label asp-for="User.Phone" class="control-label"></label>
+                <input asp-for="User.Phone" class="form-control" />
+                <span asp-validation-for="User.Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreditCard" class="control-label"></label>
-                <input asp-for="CreditCard" class="form-control" />
-                <span asp-validation-for="CreditCard" class="text-danger"></span>
+                <label asp-for="User.CreditCard" class="control-label"></label>
+                <input asp-for="User.CreditCard" class="form-control" />
+                <span asp-validation-for="User.CreditCard" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-success" />

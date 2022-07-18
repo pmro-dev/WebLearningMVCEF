@@ -20,10 +20,10 @@ namespace WebLearningMVCEF.Models
         
         [Required]
         public string Login { get; set; }
-        
+
+        [Required]
         public int RoleTypeId { get; set; }
         
-        [Required]
         [ForeignKey("RoleTypeId")]
         [DisplayName("Role")]
         public virtual RoleType RoleType { get; set; }
